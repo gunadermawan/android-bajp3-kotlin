@@ -66,7 +66,6 @@ class FilmRepository private constructor(
                             response.posterPath,
                             response.backdropPath,
                             response.overview,
-                            response.release_date,
                             false,
                             "movies"
                         )
@@ -110,7 +109,6 @@ class FilmRepository private constructor(
                             response.posterPath,
                             response.backdropPath,
                             response.overview,
-                            response.release_date,
                             false,
                             "tv"
                         )

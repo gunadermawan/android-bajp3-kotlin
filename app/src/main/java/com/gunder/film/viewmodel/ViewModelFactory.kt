@@ -6,9 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.gunder.film.data.FilmRepository
 import com.gunder.film.di.Injection
 import com.gunder.film.ui.detail.DetailActivityViewModel
+import com.gunder.film.ui.favorite.FavoriteViewModel
 import com.gunder.film.ui.home.HomeViewModel
-import com.gunder.film.ui.movies.MoviesViewModel
-import com.gunder.film.ui.tvshow.TvShowViewModel
 
 class ViewModelFactory private constructor(private val mFilmsRepository: FilmRepository) :
     ViewModelProvider.NewInstanceFactory() {

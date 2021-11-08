@@ -13,7 +13,7 @@ data class ListEntity(
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "id")
-    var id: Int? = 0,
+    var id: Int = 0,
 
     @ColumnInfo(name = "title")
     var title: String? = null,
@@ -30,12 +30,9 @@ data class ListEntity(
     @ColumnInfo(name = "overview")
     var overview: String? = null,
 
-    @ColumnInfo(name = "release_date")
-    var release_date: String? = null,
-
     @ColumnInfo(name = "favorited")
-    var favorited: Boolean? = false,
+    var favorited: Boolean = false,
 
     @ColumnInfo(name = "type")
-    var type: String? = null
+    var type: String? = null,
 ) : Parcelable

@@ -5,6 +5,7 @@
     <string name="share">Share</string>
     <string name="text_share">Film : %1$s, \n\nOverview : \n%2$s</string>
 
+
     <string name="title">Title</string>S
     <string name="overview">Overview</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -14,4 +15,8 @@
     <string name="data_tidak_tersedia">Data Tidak Tersedia</string>
     <string name="gambar_poster">gambar poster</string>
     <string name="gambar_profil">gambar profil</string>
+    <string name="message_ok">OK</string>
+    <string name="message_undo">Batalkan menghapus item sebelumnya?</string>
+    <string name="favorite">Favorite</string>
+    <string name="favorited">favorited</string>
 </resources>
