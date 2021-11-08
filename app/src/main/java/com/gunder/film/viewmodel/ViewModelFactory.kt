@@ -2,7 +2,7 @@ package com.gunder.film.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.gunder.film.data.source.FilmRepository
+import com.gunder.film.data.FilmRepository
 import com.gunder.film.di.Injection
 import com.gunder.film.ui.detail.DetailActivityViewModel
 import com.gunder.film.ui.movies.MoviesViewModel

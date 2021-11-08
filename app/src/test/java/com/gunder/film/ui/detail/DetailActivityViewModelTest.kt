@@ -3,7 +3,7 @@ package com.gunder.film.ui.detail
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.gunder.film.data.source.FilmRepository
+import com.gunder.film.data.FilmRepository
 import com.gunder.film.data.source.local.entity.DetailEntity
 import com.gunder.film.utils.DataDummy
 import com.nhaarman.mockitokotlin2.verify
