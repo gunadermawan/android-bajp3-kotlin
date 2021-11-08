@@ -12,7 +12,7 @@ class FavoriteViewModel(private val filmRepository: FilmRepository) : ViewModel(
     fun getFavorite(): LiveData<PagedList<ListEntity>> = filmRepository.getFavorited()
 
     fun setFavorited(filmsEntity: ListEntity) {
-        val newState = !filmsEntity.favorited!!
+        val newState = !filmsEntity.favorited
         filmRepository.setFilmFavorite(filmsEntity, newState)
     }
 }

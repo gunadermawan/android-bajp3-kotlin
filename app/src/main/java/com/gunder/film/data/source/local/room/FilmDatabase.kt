@@ -9,7 +9,7 @@ import com.gunder.film.data.source.local.entity.ListEntity
 
 @Database(
     entities = [ListEntity::class, DetailEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class FilmDatabase : RoomDatabase() {
