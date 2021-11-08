@@ -1,19 +1,21 @@
 package com.gunder.film.data.source.local.room
 
 import androidx.lifecycle.LiveData
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Update
+import androidx.paging.DataSource
+import androidx.room.*
+import androidx.room.Dao
+import com.gunder.film.data.source.local.entity.DetailEntity
 import com.gunder.film.data.source.local.entity.ListEntity
 
-interface Dao {
-    @androidx.room.Query("SELECT * FROM listentities WHERE type = 'movies'")
+@Dao
+interface FilmDao {
+    @Query("SELECT * FROM listentities WHERE type = 'movies'")
     fun getMovies(): DataSource.Factory<Int, ListEntity>
 
-    @androidx.room.Query("SELECT * FROM listentities WHERE type = 'tv'")
+    @Query("SELECT * FROM listentities WHERE type = 'tv'")
     fun getTvShow(): DataSource.Factory<Int, ListEntity>
 
-    @androidx.room.Query("SELECT * FROM listentities WHERE favorited = 1")
+    @Query("SELECT * FROM listentities WHERE favorited = 1")
     fun getFavorite(): DataSource.Factory<Int, ListEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -22,7 +24,7 @@ interface Dao {
     @Update
     fun updateFilm(films: ListEntity)
 
-    @androidx.room.Query("SELECT * FROM detailentities WHERE id = :id")
+    @Query("SELECT * FROM detailentities WHERE id = :id")
     fun getDetailById(id: Int): LiveData<DetailEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

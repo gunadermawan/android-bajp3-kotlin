@@ -33,8 +33,8 @@ data class ListEntity(
     @ColumnInfo(name = "release_date")
     var release_date: String? = null,
 
-    @ColumnInfo(name = "favorite")
-    var favorite: Boolean? = false,
+    @ColumnInfo(name = "favorited")
+    var favorited: Boolean? = false,
 
     @ColumnInfo(name = "type")
     var type: String? = null
