@@ -23,5 +23,8 @@ data class DetailEntity(
     var name: String? = null,
 
     @ColumnInfo(name = "overview")
-    var overview: String? = null
+    var overview: String? = null,
+
+    @ColumnInfo(name = "images")
+    var images: String? = null
 )

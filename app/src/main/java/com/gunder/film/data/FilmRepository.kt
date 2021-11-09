@@ -148,7 +148,8 @@ class FilmRepository private constructor(
                     data.backdropPath,
                     data.title,
                     data.name,
-                    data.overview
+                    data.overview,
+                    data.posterPath
                 )
 
                 localDataSource.insertDetail(detailEntity)
@@ -174,7 +175,8 @@ class FilmRepository private constructor(
                     data.backdropPath,
                     data.title,
                     data.name,
-                    data.overview
+                    data.overview,
+                    data.posterPath
                 )
 
                 localDataSource.insertDetail(detailEntity)

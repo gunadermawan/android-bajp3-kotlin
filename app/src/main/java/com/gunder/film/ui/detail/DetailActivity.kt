@@ -156,6 +156,9 @@ class DetailActivity : AppCompatActivity() {
 
         binding.titleDetail.text = text
         binding.overview.text = data.overview
+        Glide.with(this)
+            .load(BuildConfig.IMAGES +"/${data.images}")
+            .into(binding.ivPhotoDetail)
     }
 
     private fun setBookmarkState(state: Boolean) {
