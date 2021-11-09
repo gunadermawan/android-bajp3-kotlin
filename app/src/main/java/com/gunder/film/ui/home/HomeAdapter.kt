@@ -45,7 +45,12 @@ class HomeAdapter : PagedListAdapter<ListEntity, HomeAdapter.ContentViewHolder>(
             Glide.with(itemView.context)
                 .load(BuildConfig.IMAGES + "/${data.images}")
                 .into(binding.imageItem)
-            binding.tvTitle.text = data.title
+            val text: String = if (data.type == "movies") {
+                "${data.title}"
+            } else {
+                "${data.name}"
+            }
+            binding.tvTitle.text = text
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
