@@ -55,8 +55,9 @@ class HomeActivity : AppCompatActivity() {
     private fun setMode(selectedMode: Int) {
         when (selectedMode) {
             R.id.favorited -> {
-                val intent = Intent(this, FavoriteActivity::class.java)
-                startActivity(intent)
+                Intent(this, FavoriteActivity::class.java).also {
+                    startActivity(it)
+                }
             }
         }
     }
