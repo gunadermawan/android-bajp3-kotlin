@@ -159,6 +159,7 @@ class DetailActivity : AppCompatActivity() {
         Glide.with(this)
             .load(BuildConfig.IMAGES +"/${data.images}")
             .into(binding.ivPhotoDetail)
+        binding.tvReleaseDate.text = data.release_date
     }
 
     private fun setBookmarkState(state: Boolean) {

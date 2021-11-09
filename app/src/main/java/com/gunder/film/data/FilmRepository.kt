@@ -149,7 +149,8 @@ class FilmRepository private constructor(
                     data.title,
                     data.name,
                     data.overview,
-                    data.posterPath
+                    data.posterPath,
+                    data.release_date
                 )
 
                 localDataSource.insertDetail(detailEntity)
@@ -176,7 +177,8 @@ class FilmRepository private constructor(
                     data.title,
                     data.name,
                     data.overview,
-                    data.posterPath
+                    data.posterPath,
+                    data.release_date
                 )
 
                 localDataSource.insertDetail(detailEntity)
