@@ -165,10 +165,10 @@ class DetailActivity : AppCompatActivity() {
         if (menu == null) return
         val menuItem = menu?.findItem(R.id.action_bookmark)
         if (state) {
-            menuItem?.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_bookmark_24)
+            menuItem?.icon = ContextCompat.getDrawable(this, R.drawable.ic_favorite)
         } else {
             menuItem?.icon =
-                ContextCompat.getDrawable(this, R.drawable.ic_baseline_bookmark_border_24)
+                ContextCompat.getDrawable(this, R.drawable.ic_favorite_border)
         }
     }
 
