@@ -129,10 +129,12 @@ private var appExecutors: AppExecutors) :
             override fun saveCallResult(data: DetailResponse) {
                 val detailEntity = DetailEntity(
                     data.id,
+                    data.posterPath,
                     data.backdropPath,
                     data.title,
                     data.name,
-                    data.overview
+                    data.overview,
+                    data.release_date
                 )
 
                 localDataSource.insertDetail(detailEntity)
@@ -155,10 +157,12 @@ private var appExecutors: AppExecutors) :
             override fun saveCallResult(data: DetailResponse) {
                 val detailEntity = DetailEntity(
                     data.id,
+                    data.posterPath,
                     data.backdropPath,
                     data.title,
                     data.name,
-                    data.overview
+                    data.overview,
+                    data.release_date
                 )
 
                 localDataSource.insertDetail(detailEntity)
