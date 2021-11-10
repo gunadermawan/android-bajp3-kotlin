@@ -44,8 +44,8 @@ class HomeActivityTest {
 
     @Test
     fun loadMovies() {
-        onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
-        onView(withId(R.id.rv_movies)).perform(
+        onView(withId(R.id.rv_items)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_items)).perform(
             RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
                 dummyMovie.size
             )
@@ -55,8 +55,11 @@ class HomeActivityTest {
     @Test
     fun loadDetailMovie() {
         onView(withText("Movies")).perform(click())
-        onView(withId(R.id.rv_movies)).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
+        onView(withId(R.id.rv_items)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
         )
         onView(withId(R.id.title_detail)).check(matches(isDisplayed()))
         onView(withId(R.id.title_detail)).check(matches(withText(dummyMovie[0].title)))
@@ -64,16 +67,16 @@ class HomeActivityTest {
         onView(withId(R.id.overview)).check(matches(isDisplayed()))
         onView(withId(R.id.overview)).check(matches(withText(dummyMovie[0].overview)))
 
-        onView(withId(R.id.tv_release)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_release)).check(matches(withText(dummyMovie[0].release_date)))
+        onView(withId(R.id.tv_release_date)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_release_date)).check(matches(withText(dummyMovie[0].release_date)))
         onView(withId(R.id.images_detail)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun loadTvShowData(){
+    fun loadTvShowData() {
         onView(withText(R.string.tv_show)).perform(click())
-        onView(withId(R.id.rv_tv_show)).check(matches(isDisplayed()))
-        onView(withId(R.id.rv_tv_show)).perform(
+        onView(withId(R.id.rv_items)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_items)).perform(
             RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
                 dummyTvShow.size
             )
@@ -81,9 +84,9 @@ class HomeActivityTest {
     }
 
     @Test
-    fun loadDetailTvShow(){
+    fun loadDetailTvShow() {
         onView(withText(R.string.tv_show)).perform(click())
-        onView(withId(R.id.rv_tv_show)).perform(
+        onView(withId(R.id.rv_items)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
         )
         onView(withId(R.id.title_detail)).check(matches(isDisplayed()))
@@ -91,6 +94,33 @@ class HomeActivityTest {
         onView(withId(R.id.overview)).check(matches(isDisplayed()))
         onView(withId(R.id.overview)).check(matches(withText(dummyTvShow[0].overview)))
         onView(withId(R.id.images_detail)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun loadFavorite() {
+        onView(withId(R.id.rv_items)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
+        onView(withId(R.id.action_bookmark)).perform(click())
+        onView(isRoot()).perform(pressBack())
+        onView(withId(R.id.favorited)).perform(click())
+        onView(withId(R.id.rv_favorited)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_favorited)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
+        onView(withId(R.id.title_detail)).check(matches(isDisplayed()))
+        onView(withId(R.id.title_detail)).check(matches(withText(dummyMovie[0].title)))
+        onView(withId(R.id.overview)).check(matches(isDisplayed()))
+        onView(withId(R.id.overview)).check(matches(withText(dummyMovie[0].overview)))
+        onView(withId(R.id.images_detail)).check(matches(isDisplayed()))
+        onView(withId(R.id.action_bookmark)).perform(click())
+        onView(isRoot()).perform(pressBack())
     }
 
 }

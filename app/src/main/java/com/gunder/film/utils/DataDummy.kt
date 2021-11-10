@@ -30,7 +30,7 @@ object DataDummy {
         tvShow.add(
             ListEntity(
                 1399,
-                null,
+                "Game of Thro",
                 "Game of Thrones",
                 "/suopoADq0k8YZr4dQXcU6pToj6s.jpg",
                 "/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
@@ -82,9 +82,11 @@ object DataDummy {
             DetailEntity(
                 460465,
                 "/9yBVqNruk6Ykrwc32qrK2TIE5xw.jpg",
-                "Mortal Kombat",
+                "Venom",
                 null,
-                "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe."
+                "Investigative journalist Eddie Brock attempts a comeback following a scandal, but accidentally becomes the host of Venom, a violent, super powerful alien symbiote. Soon, he must rely on his newfound powers to protect the world from a shadowy organization looking for a symbiote of their own.",
+                "/9yBVqNruk6Ykrwc32qrK2TIE5xw.jpg",
+                "2018-09-28"
             )
         )
 
