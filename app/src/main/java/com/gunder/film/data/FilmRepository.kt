@@ -20,21 +20,6 @@ class FilmRepository private constructor(
     private val appExecutors: AppExecutors
 ) :
     FilmDataSource {
-    companion object {
-        @Volatile
-        private var instance: FilmRepository? = null
-
-        fun getInstance(
-            remoteData: RemoteDataSource,
-            localData: LocalDataSource,
-            appExecutors: AppExecutors
-        ): FilmRepository =
-            instance ?: synchronized(this) {
-                instance ?: FilmRepository(remoteData, localData, appExecutors).apply {
-                    instance = this
-                }
-            }
-    }
 
     override fun getAllMovies(): LiveData<Resource<PagedList<ListEntity>>> {
         return object :
@@ -189,4 +174,19 @@ class FilmRepository private constructor(
 
     override fun setFilmFavorite(film: ListEntity, state: Boolean) =
         appExecutors.diskIO().execute { localDataSource.setFilmFavorite(film, state) }
+    companion object {
+        @Volatile
+        private var instance: FilmRepository? = null
+
+        fun getInstance(
+            remoteData: RemoteDataSource,
+            localData: LocalDataSource,
+            appExecutors: AppExecutors
+        ): FilmRepository =
+            instance ?: synchronized(this) {
+                instance ?: FilmRepository(remoteData, localData, appExecutors).apply {
+                    instance = this
+                }
+            }
+    }
 }

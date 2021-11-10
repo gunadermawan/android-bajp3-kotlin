@@ -13,19 +13,6 @@ import com.gunder.film.databinding.FilmItemBinding
 import com.gunder.film.ui.detail.DetailActivity
 
 class HomeAdapter : PagedListAdapter<ListEntity, HomeAdapter.ContentViewHolder>(DIFF_CALLBACK) {
-
-    companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListEntity>() {
-            override fun areItemsTheSame(oldItem: ListEntity, newItem: ListEntity): Boolean {
-                return oldItem.id == newItem.id
-            }
-
-            override fun areContentsTheSame(oldItem: ListEntity, newItem: ListEntity): Boolean {
-                return oldItem == newItem
-            }
-        }
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContentViewHolder {
         val itemsMovies =
             FilmItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -56,6 +43,17 @@ class HomeAdapter : PagedListAdapter<ListEntity, HomeAdapter.ContentViewHolder>(
                 val intent = Intent(itemView.context, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.EXTRA_DATA, data)
                 itemView.context.startActivity(intent)
+            }
+        }
+    }
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListEntity>() {
+            override fun areItemsTheSame(oldItem: ListEntity, newItem: ListEntity): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: ListEntity, newItem: ListEntity): Boolean {
+                return oldItem == newItem
             }
         }
     }

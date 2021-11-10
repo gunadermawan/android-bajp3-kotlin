@@ -1,12 +1,11 @@
 package com.gunder.film.ui.splash
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.Window
-import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import com.gunder.film.R
 import com.gunder.film.ui.home.HomeActivity
 
@@ -19,6 +18,9 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
             finish()
-        }, 3000L)
+        }, TIME_LIMIT)
+    }
+    companion object {
+        private const val TIME_LIMIT = 3000L
     }
 }

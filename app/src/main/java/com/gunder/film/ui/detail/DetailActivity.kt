@@ -24,10 +24,6 @@ class DetailActivity : AppCompatActivity() {
 
     private var menu: Menu? = null
 
-    companion object {
-        const val EXTRA_DATA = "extra_data"
-    }
-
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
@@ -175,9 +171,9 @@ class DetailActivity : AppCompatActivity() {
 
     private fun message(state: Boolean) {
         if (state) {
-            Toast.makeText(this, "Favorited", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "ditambahkan ke favorite", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(this, "deleted", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "dihapus dari favorite", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -195,5 +191,8 @@ class DetailActivity : AppCompatActivity() {
         intent.type = "text/plain"
 
         startActivity(Intent.createChooser(intent, "Share using .."))
+    }
+    companion object {
+        const val EXTRA_DATA = "extra_data"
     }
 }

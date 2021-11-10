@@ -127,21 +127,6 @@ class RemoteDataSource {
         return resultDetail
     }
 
-    interface LoadAllMoviesCallback {
-        fun onAllMoviesReceived(moviesResponses: List<ListResponse>)
-    }
-
-    interface LoadAllTvCallback {
-        fun onAllTvShowReceived(tvShowReponse: List<ListResponse>)
-    }
-
-    interface LoadDetailMovieCallback {
-        fun onDetailMovieReceived(movieDetailResponse: DetailResponse)
-    }
-
-    interface LoadDetailTvShowCallback {
-        fun onDetailTvShowReceived(tvShowDetailResponse: DetailResponse)
-    }
     companion object {
         @Volatile
         private var instance: RemoteDataSource? = null

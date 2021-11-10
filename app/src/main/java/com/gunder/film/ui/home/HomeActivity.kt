@@ -16,14 +16,6 @@ import com.synnapps.carouselview.ImageListener
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
 
-    companion object {
-        @StringRes
-        private val TAB_TITLES = intArrayOf(
-            R.string.movies,
-            R.string.tv_show
-        )
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -75,5 +67,12 @@ class HomeActivity : AppCompatActivity() {
     )
     private val imgListener = ImageListener { position, imageView ->
         imageView.setImageResource(carouselImg[position])
+    }
+    companion object {
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.movies,
+            R.string.tv_show
+        )
     }
 }
