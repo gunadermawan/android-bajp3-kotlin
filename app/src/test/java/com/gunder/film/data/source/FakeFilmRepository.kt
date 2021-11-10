@@ -17,8 +17,9 @@ import com.gunder.film.vo.Resource
 
 class FakeFilmRepository constructor(
     private val remoteDataSource: RemoteDataSource,
-private var localDataSource: LocalDataSource,
-private var appExecutors: AppExecutors) :
+    private var localDataSource: LocalDataSource,
+    private var appExecutors: AppExecutors
+) :
     FilmDataSource {
     override fun getAllMovies(): LiveData<Resource<PagedList<ListEntity>>> {
         return object :
@@ -29,7 +30,6 @@ private var appExecutors: AppExecutors) :
                     .setInitialLoadSizeHint(4)
                     .setPageSize(4)
                     .build()
-
                 return LivePagedListBuilder(localDataSource.getMovies(), config).build()
             }
 
@@ -47,18 +47,15 @@ private var appExecutors: AppExecutors) :
                             it,
                             response.title,
                             null,
-                            response.posterPath,
                             response.backdropPath,
+                            response.posterPath,
                             response.overview,
                             false,
                             "movies"
                         )
                     }
-
                     item?.let { listItem.add(it) }
                 }
-
-                localDataSource.insertFilm(listItem)
             }
         }.asLiveData()
     }
