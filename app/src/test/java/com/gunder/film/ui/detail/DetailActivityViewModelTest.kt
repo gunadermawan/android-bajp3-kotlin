@@ -59,8 +59,10 @@ class DetailActivityViewModelTest {
         assertEquals(dummyDataMovies.id, result?.id)
         assertEquals(dummyDataMovies.title, result?.title)
         assertEquals(dummyDataMovies.name, result?.name)
+        assertEquals(dummyDataMovies.images, result?.images)
         assertEquals(dummyDataMovies.poster, result?.poster)
         assertEquals(dummyDataMovies.overview, result?.overview)
+        assertEquals(dummyDataMovies.release_date, result?.release_date)
 
         viewModel.getMovies().observeForever(observer)
         Mockito.verify(observer).onChanged(dataDummy)
@@ -82,7 +84,9 @@ class DetailActivityViewModelTest {
         assertEquals(dummyDataTvShow.title, result?.title)
         assertEquals(dummyDataTvShow.name, result?.name)
         assertEquals(dummyDataTvShow.poster, result?.poster)
+        assertEquals(dummyDataMovies.images, result?.images)
         assertEquals(dummyDataTvShow.overview, result?.overview)
+        assertEquals(dummyDataMovies.release_date, result?.release_date)
 
         viewModel.getTvShow().observeForever(observer)
         Mockito.verify(observer).onChanged(dataDummy)
@@ -93,10 +97,8 @@ class DetailActivityViewModelTest {
         val dummyData = Resource.success(DataDummy.generateDummyMovies()[0].copy(favorited = false))
         val dataItem = MutableLiveData<Resource<ListEntity>>()
         dataItem.value = dummyData
-
         dummyData.data?.let { Mockito.doNothing().`when`(filmRepository).setFilmFavorite(it, true) }
         dataItem.value!!.data?.let { viewModel.setFavorite(it, true) }
-
         Mockito.verify(filmRepository).setFilmFavorite(dataItem.value?.data as ListEntity, true)
     }
 
@@ -105,10 +107,10 @@ class DetailActivityViewModelTest {
         val dummyData = Resource.success(DataDummy.generateDummyMovies()[0].copy(favorited = true))
         val dataItem = MutableLiveData<Resource<ListEntity>>()
         dataItem.value = dummyData
-
-        dummyData.data?.let { Mockito.doNothing().`when`(filmRepository).setFilmFavorite(it, false) }
+        dummyData.data?.let {
+            Mockito.doNothing().`when`(filmRepository).setFilmFavorite(it, false)
+        }
         dataItem.value!!.data?.let { viewModel.setFavorite(it, false) }
-
         Mockito.verify(filmRepository).setFilmFavorite(dataItem.value?.data as ListEntity, false)
     }
 }
