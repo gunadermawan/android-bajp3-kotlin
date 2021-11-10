@@ -70,6 +70,7 @@ class HomeActivityTest {
         onView(withId(R.id.tv_release_date)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_release_date)).check(matches(withText(dummyMovie[0].release_date)))
         onView(withId(R.id.images_detail)).check(matches(isDisplayed()))
+        onView(withId(R.id.iv_photo_detail)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -94,6 +95,7 @@ class HomeActivityTest {
         onView(withId(R.id.overview)).check(matches(isDisplayed()))
         onView(withId(R.id.overview)).check(matches(withText(dummyTvShow[0].overview)))
         onView(withId(R.id.images_detail)).check(matches(isDisplayed()))
+        onView(withId(R.id.iv_photo_detail)).check(matches(isDisplayed()))
     }
 
     @Test
