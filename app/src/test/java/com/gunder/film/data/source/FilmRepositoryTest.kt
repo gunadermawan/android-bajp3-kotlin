@@ -23,13 +23,10 @@ import org.mockito.Mockito.mock
 class FilmRepositoryTest {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
-
     private val remote = mock(RemoteDataSource::class.java)
     private val local = mock(LocalDataSource::class.java)
     private val appExecutors = mock(AppExecutors::class.java)
-
     private val filmRepository = FakeFilmRepository(remote, local, appExecutors)
-
     private val moviesResponse = DataDummy.generateRemoteDummyMovies()
     private val tvShowResponse = DataDummy.generateRemoteDummyTvShow()
     private val dataMovie = DataDummy.generateDataDummyMovies()[0]
@@ -56,12 +53,9 @@ class FilmRepositoryTest {
             mock(DataSource.Factory::class.java) as DataSource.Factory<Int, ListEntity>
         Mockito.`when`(local.getTvShow()).thenReturn(dataSourceFactory)
         filmRepository.getAllTvShow()
-
-
         val courseEntities =
             Resource.success(PagedListUtil.mockPagedList(DataDummy.generateDummyTvShow()))
         verify(local).getTvShow()
-
         Assert.assertNotNull(courseEntities)
         assertEquals(tvShowResponse.size.toLong(), courseEntities.data?.size?.toLong())
     }

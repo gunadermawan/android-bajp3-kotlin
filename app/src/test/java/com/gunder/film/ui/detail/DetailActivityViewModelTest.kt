@@ -101,7 +101,7 @@ class DetailActivityViewModelTest {
     }
 
     @Test
-    fun delFavorite() {
+    fun deleteFavorite() {
         val dummyData = Resource.success(DataDummy.generateDummyMovies()[0].copy(favorited = true))
         val dataItem = MutableLiveData<Resource<ListEntity>>()
         dataItem.value = dummyData
