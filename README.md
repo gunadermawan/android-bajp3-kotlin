@@ -22,4 +22,5 @@ Syarat:
 
 Menerapkan instrumentation test untuk memastikan fitur-fitur yang ada berjalan dengan semestinya.
 Jika pada aplikasi terdapat proses asynchronous, maka Anda wajib menerapkan Idle Resources.
-Tuliskan skenario instrumentation test pada kolom Catatan atau berkas tersendiri (jangan lupa sampaikan juga di kolom Catatan agar reviewer dapat mengetahuinya) ketika Anda ingin mengumpulkan tugas ini.
+Tuliskan skenario instrumentation test pada kolom Catatan atau berkas tersendiri (jangan lupa sampaikan juga di kolom Catatan agar reviewer dapat mengetahuinya) ketika Anda ingin mengumpulkan tugas ini.  
+![bajp3](https://user-images.githubusercontent.com/53375007/142511601-9524644f-9305-427d-98f7-11689b21ec99.png)
