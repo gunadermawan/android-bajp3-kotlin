@@ -1,7 +1,7 @@
 # Kriteria Submission
 Berikut kriteria submission yang harus Anda penuhi:
 
-Mempertahankan fitur sebelumnya.
+> Mempertahankan fitur sebelumnya.  
 
 > Favorite Film  
 Syarat:  
